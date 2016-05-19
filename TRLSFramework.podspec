@@ -9,9 +9,9 @@ Pod::Spec.new do |s|
   s.author       = 'Maplink'
   s.source       = { :git => "https://github.com/apontador/TRLS-IOS-EXAMPLE.git", :tag => s.version.to_s }
   s.platform     = :ios, '8.0'
-  s.source_files = 'TRLSFramework.framework/Headers/*.h'
+  s.source_files = 'TRLS/'
   s.requires_arc = true
   s.ios.vendored_frameworks = 'TRLSFramework.framework'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)' }
+  s.xcconfig = {'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TRLSFramework/$(CONFIGURATION)'}        
   s.preserve_paths = 'TRLSFramework.framework'
 end
