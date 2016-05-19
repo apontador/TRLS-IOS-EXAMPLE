@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "TRLSFramework"
-  s.version      = "1.0.1"
+  s.version      = "0.0.1"
   s.summary      = "TRLS Framework"
   s.homepage     = "https://github.com/apontador/trls-library-ios"
   s.license      = { 
