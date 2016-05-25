@@ -25,8 +25,6 @@
 #import <TRLSFramework/TRLSDeviceContainer.h>
 #import <TRLSFramework/TRLSConnectionManager.h>
 #import <TRLSFramework/TRLSReachability.h>
-#import <TRLSFramework/APTUIImageView+Gradient.h>
-#import <TRLSFramework/APTUIImageView+WebCache.h>
 #import <TRLSFramework/TRLSMessageAppearance.h>
 
 //! Project version number for TRLSFramework.
