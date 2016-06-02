@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TRLSMessageContainer : NSObject
+@interface FDXMessageContainer : NSObject
 
 - (id)initWithMessageId:(NSString *)messageId urlScheme:(NSString *)urlScheme title:(NSString *)title text:(NSString *)text imageUrl:(NSString *)imageUrl actionButtonTitle:(NSString *)actionButtonTitle notificationTitle:(NSString *)notificationTitle notificationMessage:(NSString *)notificationMessage messageInterval:(int)messageInterval;
 

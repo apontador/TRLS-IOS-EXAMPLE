@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface TRLSVisitRequest : NSObject
+@interface FDXVisitRequest : NSObject
 
 - (id)initWithMethod:(NSString *)method json:(NSString *)json visit:(CLVisit *)visit;
 

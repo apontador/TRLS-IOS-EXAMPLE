@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TRLSSettingsContainer.h"
+#import "FDXSettingsContainer.h"
 
-@interface TRLSSettingsController : NSObject
+@interface FDXSettingsController : NSObject
 
 typedef void (^ TRLSSettingsCallback)();
 
-+ (TRLSSettingsContainer *)getSettingsContainer;
++ (FDXSettingsContainer *)getSettingsContainer;
 + (void)updateSettings:(TRLSSettingsCallback)callback;
 + (NSString *)getInstallationId;
 

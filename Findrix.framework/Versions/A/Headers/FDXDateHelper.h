@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TRLSDateHelper : NSObject
+@interface FDXDateHelper : NSObject
 
 + (BOOL)isDateInterval:(NSString *)prefKey dateInterval:(int)dateInterval;
 

@@ -7,18 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TRLSDeviceContainer.h"
+#import "FDXDeviceContainer.h"
 
-@interface TRLSDeviceController : NSObject
+@interface FDXDeviceController : NSObject
 
 typedef void (^ TRLSDeviceControllerCallback)(NSError *error);
-typedef void (^ TRLSDeviceControllerExistingDeviceCallback)(TRLSDeviceContainer *device);
+typedef void (^ TRLSDeviceControllerExistingDeviceCallback)(FDXDeviceContainer *device);
 
-+ (TRLSDeviceContainer *)getCurrentDevice;
-+ (void)saveCurrentDevice:(TRLSDeviceContainer *)deviceContainer;
-+ (void)createOrUpdateDevice:(TRLSDeviceContainer *)deviceContainer method:(NSString *)method callback:(TRLSDeviceControllerCallback)callback;
++ (FDXDeviceContainer *)getCurrentDevice;
++ (void)saveCurrentDevice:(FDXDeviceContainer *)deviceContainer;
++ (void)createOrUpdateDevice:(FDXDeviceContainer *)deviceContainer method:(NSString *)method callback:(TRLSDeviceControllerCallback)callback;
 + (void)updateDeviceToken:(NSString *)token callback:(TRLSDeviceControllerCallback)callback;
-+ (void)uploadDevicePhotoContainer:(TRLSDeviceContainer *)deviceContainer;
++ (void)uploadDevicePhotoContainer:(FDXDeviceContainer *)deviceContainer;
 + (void)saveDevicePhotoData:(NSData *)imageData;
 + (UIImage *)getDevicePhoto;
 + (void)getExistingDeviceFromServer:(NSString *)clientId clientSecret:(NSString *)clientSecret phone:(NSString *)phone callback:(TRLSDeviceControllerExistingDeviceCallback)callback;

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface TRLSVisitsController : NSObject<CLLocationManagerDelegate>
+@interface FDXVisitsController : NSObject<CLLocationManagerDelegate>
 
 typedef void (^ TRLSVisitRequestCallback)();
 typedef void (^ TRLSUpdateLocationCallback)(BOOL didUpdateLocation);

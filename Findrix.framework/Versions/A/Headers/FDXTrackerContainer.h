@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TRLSTrackerContainer : NSObject <NSCoding, NSCopying>
+@interface FDXTrackerContainer : NSObject <NSCoding, NSCopying>
 
 - (id)initWithAccuracy:(double)accuracy clientId:(NSString *)clientId eventDate:(NSDate *)eventDate installationId:(NSString *)installationId lat:(double)lat lon:(double)lon speed:(double)speed userId:(NSString *)userId/* externalId:(NSString *)externalId*/;
 

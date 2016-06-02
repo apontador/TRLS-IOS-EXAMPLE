@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TRLSLogController : NSObject
+@interface FDXLogController : NSObject
 
 + (void)eraseSavedLog;
 + (NSString *)getSavedLog;

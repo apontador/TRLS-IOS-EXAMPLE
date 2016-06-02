@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface TRLSMessageAppearance : NSObject
+@interface FDXMessageAppearance : NSObject
 
 + (void)setTitleColor:(UIColor *)color;
 + (void)setTextColor:(UIColor *)color;

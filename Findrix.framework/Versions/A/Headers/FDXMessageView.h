@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TRLSMessageContainer.h"
+#import "FDXMessageContainer.h"
 #import <CoreLocation/CoreLocation.h>
-#import "TRLSLocationController.h"
+#import "FDXLocationController.h"
 
-@interface TRLSMessageView : UIView
+@interface FDXMessageView : UIView
 
-- (void)buildLayout:(TRLSMessageContainer *)messageContainer superview:(UIView *)superview;
+- (void)buildLayout:(FDXMessageContainer *)messageContainer superview:(UIView *)superview;
 
 
 @end

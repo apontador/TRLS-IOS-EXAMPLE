@@ -1,0 +1,6 @@
+framework module Findrix {
+  umbrella header "Findrix.h"
+
+  export *
+  module * { export * }
+}

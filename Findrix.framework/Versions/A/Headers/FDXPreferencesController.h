@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TRLSSettingsContainer.h"
+#import "FDXSettingsContainer.h"
 
-@interface TRLSPreferencesController : NSObject
+@interface FDXPreferencesController : NSObject
 
 + (void)saveObjectWithKey:(NSString *)key andValue:(NSObject *)value;
 + (NSObject *)getObjectWithKey:(NSString *)key;

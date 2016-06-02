@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TRLSMessageContainer.h"
+#import "FDXMessageContainer.h"
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface TRLSMessageController : NSObject
+@interface FDXMessageController : NSObject
 
 //typedef void (^ TRLSMessageCallback)(TRLSMessageContainer *message);
 //
@@ -21,7 +21,7 @@
 //+ (void)showMessageFromGeofence:(TRLSMessageContainer *)messageContainer fenceId:(NSString *)fenceId;
 
 + (void)showMessage:(NSString *)messageId fenceId:(NSString *)fenceId showLoadingView:(BOOL)showLoadingView showAlert:(BOOL)showAlert;
-+ (void)showNotification:(TRLSMessageContainer *)messageContainer beacon:(CLBeacon *)beacon fenceId:(NSString *)fenceId showAlert:(BOOL)showAlert isGeofence:(BOOL)isGeofence isNoActionMessage:(BOOL)isNoActionMessage;
-+ (void)showNotificationMessage:(TRLSMessageContainer *)messageContainer showAlert:(BOOL)showAlert isNoActionMessage:(BOOL)isNoActionMessage;
++ (void)showNotification:(FDXMessageContainer *)messageContainer beacon:(CLBeacon *)beacon fenceId:(NSString *)fenceId showAlert:(BOOL)showAlert isGeofence:(BOOL)isGeofence isNoActionMessage:(BOOL)isNoActionMessage;
++ (void)showNotificationMessage:(FDXMessageContainer *)messageContainer showAlert:(BOOL)showAlert isNoActionMessage:(BOOL)isNoActionMessage;
 
 @end

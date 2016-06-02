@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface TRLSConnectionManager : NSObject
+@interface FDXConnectionManager : NSObject
 
 typedef void (^ TRLSConnectionCallback)(NSData *responseData , long statusCode);
 

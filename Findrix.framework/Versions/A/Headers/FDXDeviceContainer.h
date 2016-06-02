@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface TRLSDeviceContainer : NSObject
+@interface FDXDeviceContainer : NSObject
 
 - (id)initWithInstallationId:(NSString *)installationId /* clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret */name:(NSString *)name phone:(NSString *)phone userId:(NSString *)userId /*externalId:(NSString *)externalId */status:(NSString *)status deviceType:(NSString *)deviceType token:(NSString *)token photo:(UIImage *)photo timezone:(NSString *)timezone locale:(NSString *)locale version:(NSString *)version model:(NSString *)model email:(NSString *)email;
-- (BOOL)equals:(TRLSDeviceContainer *)otherDevice;
+- (BOOL)equals:(FDXDeviceContainer *)otherDevice;
 
 @property (nonatomic, strong) NSString *installationId;
 //@property (nonatomic, strong) NSString *clientId;

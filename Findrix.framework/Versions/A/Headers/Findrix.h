@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "TRLSVisitsController.h"
+#import "FDXVisitsController.h"
 
-@interface TRLS : NSObject
+@interface Findrix : NSObject
 
 #pragma mark - Attributes
 

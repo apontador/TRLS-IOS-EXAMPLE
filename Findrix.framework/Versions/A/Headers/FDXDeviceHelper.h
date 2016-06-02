@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TRLSDeviceHelper : NSObject
+@interface FDXDeviceHelper : NSObject
 
 + (NSString*)getDeviceModelName;
 

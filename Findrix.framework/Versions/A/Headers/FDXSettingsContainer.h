@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TRLSSettingsContainer : NSObject
+@interface FDXSettingsContainer : NSObject
 
 - (id)initWithTrackingInterval:(NSNumber *)trackingInterval minimumTrackingPositions:(NSNumber *)minimumTrackingPositions updateSettingsInterval:(NSNumber *)updateSettingsInterval updateMessageInterval:(NSNumber *)updateMessageInterval beacons:(NSArray *)beacons;
 
