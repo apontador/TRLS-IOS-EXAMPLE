@@ -25,20 +25,20 @@ Add the Background Modes below to your target:
 ###Cocoapods  
 Add the following line to your project's Podfile:
 ```objective-c
-    pod 'TRLSFramework'
+    pod 'Findrix'
 ```
 
 ###Manual￼￼
-1. Download the TRLSFramework SDK for iOS. 
-2. Drag the TRLSFramework.framework file to your Xcode project and place it under the Frameworks folder.
+1. Download the Findrix.framework SDK for iOS. 
+2. Drag the Findrix.framework file to your Xcode project and place it under the Frameworks folder.
 
 ##Initialization
 ```objective-c
-#import <TRLSFramework/TRLSFramework.h>
+#import <Findrix/Findrix.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [TRLS startWithUserId:@"userId" clientId:@"clientId" clientSecret:@"clientSecret" name:@"deviceName" phone:@"devicePhoneNumber" photo:devicePhoto callback:^(NSString *deviceId, NSError *error) {
+    [Findrix startWithUserId:@"userId" clientId:@"clientId" clientSecret:@"clientSecret" name:@"deviceName" phone:@"devicePhoneNumber" photo:devicePhoto callback:^(NSString *deviceId, NSError *error) {
         
         if(error == nil) NSLog(@"Device created %@", deviceId);
         else NSLog(@"Error creating device %@", error.description);
@@ -51,15 +51,15 @@ Add the following line to your project's Podfile:
 
 #####Parameters:
 - userId – Provide an ID for this device(can be null or empty) 
-- clientId – Request a client id with TRLS dev team
-- clientSecret – Request a client secret with TRLS dev team 
+- clientId – Request a client id with Findrix dev team
+- clientSecret – Request a client secret with Findrix dev team 
 - deviceName – Can be null or empty
 - devicePhoneNumber - Can be null or empty
 - devicePhoto - Can be null of empty
 - callback - Device creation callback
 
 ##Push notifications
-The first step is to create an App ID and the associated SSL certificate on the Apple Developer website. This certificate will allow the Parse server to send push notifications to the application identified by the App ID. If you already created the App ID and the associated SSL certificate, send the p12 file to TRLS dev team(Section Configuring your App ID for Development Push Notifications): 
+The first step is to create an App ID and the associated SSL certificate on the Apple Developer website. This certificate will allow the Parse server to send push notifications to the application identified by the App ID. If you already created the App ID and the associated SSL certificate, send the p12 file to Findrix dev team(Section Configuring your App ID for Development Push Notifications): 
 
 ######Generating a Certificate Request
 To begin, we'll need a certificate signing request file. This will be used to authenticate the creation of the SSL certificate.
@@ -137,33 +137,32 @@ Now you must register the current device for push. If you already register your 
   #endif 
 }
 ```
--  Call the method registerDeviceForPushNotifications before TRLS initialization in the app delegate’s application:didFinishLaunchingWithOptions: method:
+-  Call the method registerDeviceForPushNotifications before Findrix initialization in the app delegate’s application:didFinishLaunchingWithOptions: method:
 ```objective-c
 - (BOOL)application:(UIApplication *)application
   didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self registerDeviceForPushNotifications];
-    [TRLS startWithExternalId:@"externalId" clientId:@"clientId" name:@"deviceName" phone:@"devicePhoneNumber"];
-    
+
 }
 ```
 
-Implement the callback method - application:didRegisterForRemoteNotificationsWithDeviceToken: in the app delegate. We need to inform TRLS about this new device:
+Implement the callback method - application:didRegisterForRemoteNotificationsWithDeviceToken: in the app delegate. We need to inform Findrix about this new device:
 ```objective-c
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
   
-    [TRLS setDeviceToken:deviceToken];
+    [Findrix setDeviceToken:deviceToken];
    
 }
 ```
-To handle a notification, implement the method below in the app delegate. If you already use your own push notification service, you need to verifiy if the notification is from a TRLS server:
+To handle a notification, implement the method below in the app delegate. If you already use your own push notification service, you need to verifiy if the notification is from a Findrix server:
 ```objective-c
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
   
-    if(![TRLS applicationDidReceiveRemoteNotification:userInfo]){
-      //It's not a TRLS notification, you can process de push notification
+    if(![Findrix applicationDidReceiveRemoteNotification:userInfo]){
+      //It's not a Findrix notification, you can process de push notification
     }else{
-      //It's a TRLS notification, the library will process it automatically;
+      //It's a Findrix notification, the library will process it automatically;
     }
   
 }
@@ -173,21 +172,21 @@ Once you've set up your library integration, you can customize the UI to match t
 
 Import the class 
 ```objective-c
-#import "TRLSMessageAppearance.h"
+#import <Findrix/FDXMessageAppearance.h>
 ```
 You can customize the following properties
 ```objective-c
     // Colors
-    [TRLSMessageAppearance setTextColor:[UIColor blueColor]];
-    [TRLSMessageAppearance setBackgroundColor:[UIColor grayColor]];
-    [TRLSMessageAppearance setButtonBackgroundColor:[UIColor yellowColor]];
-    [TRLSMessageAppearance setButtonTextColor:[UIColor greenColor]];
-    [TRLSMessageAppearance setTitleColor:[UIColor blackColor]];
+    [FDXMessageAppearance setTextColor:[UIColor blueColor]];
+    [FDXMessageAppearance setBackgroundColor:[UIColor grayColor]];
+    [FDXMessageAppearance setButtonBackgroundColor:[UIColor yellowColor]];
+    [FDXMessageAppearance setButtonTextColor:[UIColor greenColor]];
+    [FDXMessageAppearance setTitleColor:[UIColor blackColor]];
     
     //Fonts
-    [TRLSMessageAppearance setTitleFont:[UIFont systemFontOfSize:9.0]];
-    [TRLSMessageAppearance setButtonTextFont:[UIFont boldSystemFontOfSize:18.0]];
-    [TRLSMessageAppearance setTextFont:[UIFont italicSystemFontOfSize:12.0]];
+    [FDXMessageAppearance setTitleFont:[UIFont systemFontOfSize:9.0]];
+    [FDXMessageAppearance setButtonTextFont:[UIFont boldSystemFontOfSize:18.0]];
+    [FDXMessageAppearance setTextFont:[UIFont italicSystemFontOfSize:12.0]];
 ```
 
 
