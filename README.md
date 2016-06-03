@@ -11,6 +11,7 @@
 - SystemConfiguration.framework
 - libz.dylib
 - CoreTelephony.framework
+- AdSupport.framework
 
 #####Property list file
 Add the properties below to your project plist file:
