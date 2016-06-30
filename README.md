@@ -98,7 +98,7 @@ selecting "Create Certificate" under "Development SSL Certificate".
 6. In Keychain Access, under "My Certificates", find the certificate you just added. It
 should be called "Apple Development/Production IOS Push Services.
 7. Right-click on it, select "Export Apple Development IOS Push Services:...", and save
-it as a .p12 file. You will be prompted to enter a password which will be used to protect the exported certificate. Do not enter an export password when prompted! Note that you might have to enter your OS X password to allow Keychain Access to export the certificate from your keychain
+it as a .p12 file. You will be prompted to enter a password which will be used to protect the exported certificate. Enter the password "1234". Note that you might have to enter your OS X password to allow Keychain Access to export the certificate from your keychain
 
 ######Creating the Provisioning Profile
 A Provisioning Profile authenticates your device to run the app you are developing. Whether you have created a new App ID or modified an existing one, you will need to regenerate your provisioning profile and install it. If you have trouble using an existing profile, try removing the App ID and setting it back. For this tutorial, we'll create a new one.
