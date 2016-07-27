@@ -48,6 +48,12 @@ Add the following line to your project's Podfile:
     ];
     
 }
+
+- (void)applicationDidBecomeActive:(UIApplication *)application{
+
+    [Findrix activate];
+    
+}
 ```
 
 #####Parameters:
@@ -58,6 +64,7 @@ Add the following line to your project's Podfile:
 - devicePhoneNumber - Can be null or empty
 - devicePhoto - Can be null of empty
 - callback - Device creation callback
+IMPORTANT: Don't forget to call [Findrix activate]!
 
 ##Push notifications
 The first step is to create an App ID and the associated SSL certificate on the Apple Developer website. This certificate will allow the Parse server to send push notifications to the application identified by the App ID. If you already created the App ID and the associated SSL certificate, send the p12 file to Findrix dev team(Section Configuring your App ID for Development Push Notifications): 
