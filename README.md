@@ -64,6 +64,7 @@ Add the following line to your project's Podfile:
 - devicePhoneNumber - Can be null or empty
 - devicePhoto - Can be null of empty
 - callback - Device creation callback
+
 IMPORTANT: Don't forget to call [Findrix activate]!
 
 ##Push notifications
