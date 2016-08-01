@@ -23,11 +23,10 @@ typedef void (^ TRLSCallback)(NSString *deviceId, NSError *error);
 + (NSString *)getClientSecret;
 + (void)setClientSecret:(NSString *)value;
 + (NSString *)getToken;
-+ (void)stop;
++ (void)activate;
 
-+ (void)startWithUserId:(NSString *)userId clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret name:(NSString *)name phone:(NSString *)phone email:(NSString *)email photo:(UIImage *)photo callback:(TRLSCallback)callback;
++ (void)startWithUserId:(NSString *)userId clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret name:(NSString *)name phone:(NSString *)phone email:(NSString *)email status:(NSString *)status photo:(UIImage *)photo callback:(TRLSCallback)callback;
 + (void)setDeviceToken:(NSData *)token;
 + (BOOL)applicationDidReceiveRemoteNotification:(NSDictionary *)userInfo;
-+ (void)updateLocation:(TRLSUpdateLocationCallback)callback;
 
 @end

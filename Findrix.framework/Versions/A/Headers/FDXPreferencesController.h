@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FDXSettingsContainer.h"
 
 @interface FDXPreferencesController : NSObject
 

@@ -20,5 +20,6 @@
 + (NSString *)getVisitsLogKey;
 + (NSString *)getTrackingLogKey;
 + (NSString *)getPositionLogKey;
++ (void)debugLog:(NSString *)message;
 
 @end
