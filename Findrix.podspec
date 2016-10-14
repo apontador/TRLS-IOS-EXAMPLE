@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Findrix"
-  s.version      = "2.8"
+  s.version      = "2.9"
   s.summary      = "Findrix Framework"
   s.homepage     = "https://github.com/apontador/findrix-sdk-doc-ios"
   s.license      = { 
