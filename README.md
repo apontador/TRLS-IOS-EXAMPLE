@@ -130,20 +130,39 @@ select "Generate".
 ######Registering the device
 Now you must register the current device for push. If you already register your device for push notifications, go to step 3:
 
+- Change the AppDelegate.h:
+```objective-c
+#import <UserNotifications/UserNotifications.h>
+@interface TRLSAppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
+```
+
+- Add the macros below:
+```objective-c
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+```
+
 -  Create the method registerDeviceForPushNotifications in the app delegate: 
 ```objective-c
 - (void)registerDeviceForPushNotifications{
-  UIApplication *application = [UIApplication sharedApplication]; [application unregisterForRemoteNotifications];
-  #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
-    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-      UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
-      [application registerUserNotificationSettings:settings]; [application registerForRemoteNotifications];
-    } else {
-      [application registerForRemoteNotificationTypes: UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge];
+  if( SYSTEM_VERSION_LESS_THAN( @"10.0" ) )
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+
     }
-  #else
-    [application registerForRemoteNotificationTypes: (UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];    
-  #endif 
+    else
+    {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        center.delegate = self;
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error)
+         {
+             if( !error )
+             {
+                 [[UIApplication sharedApplication] registerForRemoteNotifications];
+             }
+         }];  
+    } 
 }
 ```
 -  Call the method registerDeviceForPushNotifications before Findrix initialization in the app delegate’s application:didFinishLaunchingWithOptions: method:
@@ -164,16 +183,24 @@ Implement the callback method - application:didRegisterForRemoteNotificationsWit
    
 }
 ```
-To handle a notification, implement the method below in the app delegate. If you already use your own push notification service, you need to verifiy if the notification is from a Findrix server:
+To handle a notification, implement the methods below in the app delegate:
 ```objective-c
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
-  
-    if(![Findrix applicationDidReceiveRemoteNotification:userInfo]){
-      //It's not a Findrix notification, you can process de push notification
-    }else{
-      //It's a Findrix notification, the library will process it automatically;
-    }
-  
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    [Findrix applicationDidReceiveRemoteNotification:userInfo];
+    
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
+    
+    [Findrix applicationDidReceiveRemoteNotificationWithNotification:notification];
+    
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler{
+    
+    [Findrix applicationDidReceiveRemoteNotificationWithNotification:response.notification];
+
 }
 ```
 ##Customize the UI for Your App
