@@ -39,7 +39,7 @@ Add the following line to your project's Podfile:
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [Findrix startWithUserId:@"userId" clientId:@"clientId" clientSecret:@"clientSecret" name:@"deviceName" phone:@"devicePhoneNumber" photo:devicePhoto callback:^(NSString *deviceId, NSError *error) {
+    [Findrix start:@"userId" clientId:@"clientId" clientSecret:@"clientSecret" photo:devicePhoto callback:^(NSString *deviceId, NSError *error) {
         
         if(error == nil) NSLog(@"Device created %@", deviceId);
         else NSLog(@"Error creating device %@", error.description);
@@ -60,8 +60,6 @@ Add the following line to your project's Podfile:
 - userId – Provide an ID for this device(can be null or empty) 
 - clientId – Request a client id with Findrix dev team
 - clientSecret – Request a client secret with Findrix dev team 
-- deviceName – Can be null or empty
-- devicePhoneNumber - Can be null or empty
 - devicePhoto - Can be null of empty
 - callback - Device creation callback
 
