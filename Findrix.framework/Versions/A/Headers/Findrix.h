@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "FDXVisitsController.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface Findrix : NSObject
 
@@ -25,8 +26,10 @@ typedef void (^ TRLSCallback)(NSString *deviceId, NSError *error);
 + (NSString *)getToken;
 + (void)activate;
 
-+ (void)startWithUserId:(NSString *)userId clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret name:(NSString *)name phone:(NSString *)phone email:(NSString *)email status:(NSString *)status photo:(UIImage *)photo callback:(TRLSCallback)callback;
++ (void)startWithUserId:(NSString *)userId clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret name:(NSString *)name phone:(NSString *)phone email:(NSString *)email status:(NSString *)status photo:(UIImage *)photo callback:(TRLSCallback)callback __deprecated_msg("use start instead");
++ (void)start:(NSString *)userId clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret photo:(UIImage *)photo callback:(TRLSCallback)callback;
 + (void)setDeviceToken:(NSData *)token;
 + (BOOL)applicationDidReceiveRemoteNotification:(NSDictionary *)userInfo;
-
++ (BOOL)applicationDidReceiveRemoteNotificationWithNotification:(UNNotification *)notification;
+    
 @end

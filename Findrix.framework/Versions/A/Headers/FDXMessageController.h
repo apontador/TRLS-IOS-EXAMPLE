@@ -13,15 +13,8 @@
 
 @interface FDXMessageController : NSObject
 
-//typedef void (^ TRLSMessageCallback)(TRLSMessageContainer *message);
-//
-//+ (void)getMessageWithId:(NSString *)messageId showLoadingView:(BOOL)showLoadingView callback:(TRLSMessageCallback)callback;
-//+ (void)getBeaconMessage:(CLBeacon *)beacon callback:(TRLSMessageCallback)callback;
-//+ (void)showMessage:(TRLSMessageContainer *)messageContainer beacon:(CLBeacon *)beacon;
-//+ (void)showMessageFromGeofence:(TRLSMessageContainer *)messageContainer fenceId:(NSString *)fenceId;
 
-+ (void)showMessage:(NSString *)messageId fenceId:(NSString *)fenceId showLoadingView:(BOOL)showLoadingView showAlert:(BOOL)showAlert;
-+ (void)showNotification:(FDXMessageContainer *)messageContainer beacon:(CLBeacon *)beacon fenceId:(NSString *)fenceId showAlert:(BOOL)showAlert isGeofence:(BOOL)isGeofence isNoActionMessage:(BOOL)isNoActionMessage;
-+ (void)showNotificationMessage:(FDXMessageContainer *)messageContainer showAlert:(BOOL)showAlert isNoActionMessage:(BOOL)isNoActionMessage;
+//+ (void)markMessageAsReceived:(FDXMessageContainer *)messageContainer;
++ (void)showMessage:(NSString *)messageId showLoadingView:(BOOL)showLoadingView showAlert:(BOOL)showAlert;
 
 @end
