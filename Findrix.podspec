@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Findrix"
-  s.version      = "26"
+  s.version      = "27"
   s.summary      = "Findrix Framework"
   s.homepage     = "https://github.com/apontador/findrix-sdk-doc-ios"
   s.license      = { :type => 'Apache License, Version 2.0', :text => <<-LICENSE
@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Findrix.framework/Versions/A/Headers/*.h'
   s.requires_arc = true
   s.ios.vendored_frameworks = 'Findrix.framework'
+  s.ios.framework = 'CoreLocation'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)' }
   s.preserve_paths = 'Findrix.framework'
 end
