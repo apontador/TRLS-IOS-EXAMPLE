@@ -27,7 +27,8 @@ typedef void (^ TRLSCallback)(NSString *deviceId, NSError *error);
 + (void)activate;
 
 + (void)startWithUserId:(NSString *)userId clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret name:(NSString *)name phone:(NSString *)phone email:(NSString *)email status:(NSString *)status photo:(UIImage *)photo callback:(TRLSCallback)callback __deprecated_msg("use start instead");
-+ (void)start:(NSString *)userId clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret photo:(UIImage *)photo callback:(TRLSCallback)callback;
++ (void)start:(NSString *)userId clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret photo:(UIImage *)photo callback:(TRLSCallback)callback __deprecated_msg("photo is not supported");
++ (void)start:(NSString *)userId clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret callback:(TRLSCallback)callback;
 + (void)setDeviceToken:(NSData *)token;
 + (BOOL)applicationDidReceiveRemoteNotification:(NSDictionary *)userInfo;
 + (BOOL)applicationDidReceiveRemoteNotificationWithNotification:(UNNotification *)notification;
