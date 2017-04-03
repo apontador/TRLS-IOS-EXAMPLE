@@ -15,6 +15,6 @@
 
 
 //+ (void)markMessageAsReceived:(FDXMessageContainer *)messageContainer;
-+ (void)showMessage:(NSString *)messageId showLoadingView:(BOOL)showLoadingView showAlert:(BOOL)showAlert;
++ (void)showMessage:(NSString *)messageId messageContent:(NSString *)messageContent showLoadingView:(BOOL)showLoadingView showAlert:(BOOL)showAlert;
 
 @end
